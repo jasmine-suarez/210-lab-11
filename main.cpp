@@ -4,6 +4,12 @@
 #include <iostream>
 using namespace std;
 
+struct Customer {
+    string name;
+    int tableNum;
+    string * orders;
+};
+
 int main() {
 
 
