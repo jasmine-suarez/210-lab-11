@@ -21,6 +21,18 @@ void inputCustomer(Customer *);
 void displayCustomer(Customer *);
 
 int main() {
+    int numCustomers;
+    cout << "How many customers? ";
+    cin >> numCustomers;
+    cin.ignore();
+
+    Customer *list = new Customer[numCustomers];
+
+    for (int i = 0; i < numCustomers; i++)
+        inputCustomer(&list[i]);
+
+    for (int i = 0; i < numCustomers; i++)
+        displayCustomer(&list[i]);
 
     return 0;
 }
@@ -49,6 +61,6 @@ void displayCustomer(Customer * cptr) {
     for (int i = 0; i < cptr->numOrders; i++) {
         cout << "Order #" << i + 1 << ": " << cptr->orders[i] << endl;
     }
-    
+
     cout << endl;
 }
