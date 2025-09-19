@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+// hello
 struct Customer {
     string name;
     int tableNum;
