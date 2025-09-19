@@ -4,13 +4,14 @@
 #include <iostream>
 using namespace std;
 
-// hello
+// struct to represent a restaurant customer
 struct Customer {
-    string name;
-    int tableNum;
-    int numOrders;
-    string * orders;
+    string name;        // customer's name
+    int tableNum;       // table number customer is sitting at
+    int numOrders;      // amount of orders
+    string * orders;    // dynamic array of order numbers
 
+    // destructor, cleans up memory
     ~Customer() {
         if (orders)
             delete [] orders;
@@ -18,20 +19,30 @@ struct Customer {
     }
 };
 
+// inputCustomer() inputs data for a customer
+// arguments: Customer
+// returns: nothing
 void inputCustomer(Customer *);
+
+// displayCustomer() display data for a customer
+// arguments: Customer
+// returns: nothing
 void displayCustomer(Customer *);
 
 int main() {
     int numCustomers;
     cout << "How many customers? ";
-    cin >> numCustomers;
+    cin >> numCustomers; // input number of customers
     cin.ignore();
 
+    // dynamically allocates an array of 'Customer' structs
     Customer *list = new Customer[numCustomers];
 
+    // loop for inputting data of customer
     for (int i = 0; i < numCustomers; i++)
         inputCustomer(&list[i]);
 
+    // loop for displaying data of customer
     for (int i = 0; i < numCustomers; i++)
         displayCustomer(&list[i]);
 
@@ -54,6 +65,7 @@ void inputCustomer(Customer * cptr) {
         getline(cin, cptr->orders[i]);
     }
     cout << endl;
+    cout << "need to commit";
 }
 
 void displayCustomer(Customer * cptr) {
