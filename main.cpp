@@ -18,6 +18,7 @@ struct Customer {
 };
 
 void inputCustomer(Customer *);
+void displayCustomer(Customer *);
 
 int main() {
 
@@ -31,14 +32,20 @@ void inputCustomer(Customer * cptr) {
     cin >> cptr->tableNum;
     cout << "How many orders? ";
     cin >> cptr->numOrders;
-
     cptr -> orders = new string[cptr->numOrders];
     for (int i = 0; i < cptr->numOrders; i++) {
         cout << "Enter order #" << i + 1 << ": ";
         getline(cin, cptr->orders[i]);
     }
-
     cin.ignore();
-
     cout << endl;
+}
+
+void displayCustomer(Customer * cptr) {
+    cout << "Customer summart:\n";
+    cout << "Name: " << cptr->name << endl;
+    cout << "Table number: " << cptr->tableNum << endl;
+    for (int i = 0; i < cptr->numOrders; i++) {
+        cout << "test";
+    }
 }
