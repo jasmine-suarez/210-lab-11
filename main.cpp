@@ -34,17 +34,22 @@ int main() {
     cout << "How many customers? ";
     cin >> numCustomers; // input number of customers
     cin.ignore();
+    cout << endl;
 
     // dynamically allocates an array of 'Customer' structs
     Customer *list = new Customer[numCustomers];
 
     // loop for inputting data of customer
-    for (int i = 0; i < numCustomers; i++)
+    for (int i = 0; i < numCustomers; i++) {
+        cout << "Input data for Customer #" << i + 1 << endl;
         inputCustomer(&list[i]);
+    }
 
     // loop for displaying data of customer
-    for (int i = 0; i < numCustomers; i++)
+    for (int i = 0; i < numCustomers; i++) {
+        cout << "Displaying data for Customer #" << i + 1 << endl;
         displayCustomer(&list[i]);
+    }
 
     return 0;
 }
@@ -59,17 +64,18 @@ void inputCustomer(Customer * cptr) {
 
     cin.ignore();
 
+    // dynamically allocates the orders array using numOrders
     cptr -> orders = new string[cptr->numOrders];
+
+    // inpute each order
     for (int i = 0; i < cptr->numOrders; i++) {
         cout << "Enter order #" << i + 1 << ": ";
         getline(cin, cptr->orders[i]);
     }
     cout << endl;
-    cout << "need to commit";
 }
 
 void displayCustomer(Customer * cptr) {
-    cout << "Customer summary:\n\n";
     cout << "Name: " << cptr->name << endl;
     cout << "Table number: " << cptr->tableNum << endl;
     for (int i = 0; i < cptr->numOrders; i++) {
