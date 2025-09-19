@@ -41,13 +41,13 @@ int main() {
 
     // loop for inputting data of customer
     for (int i = 0; i < numCustomers; i++) {
-        cout << "Input data for Customer #" << i + 1 << endl;
+        cout << "~ Input data for Customer #" << i + 1 << " ~" << endl;
         inputCustomer(&list[i]);
     }
 
     // loop for displaying data of customer
     for (int i = 0; i < numCustomers; i++) {
-        cout << "Displaying data for Customer #" << i + 1 << endl;
+        cout << "~ Displaying data for Customer #" << i + 1 << " ~" << endl;
         displayCustomer(&list[i]);
     }
 
