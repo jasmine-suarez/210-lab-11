@@ -37,6 +37,7 @@ void inputCustomer(Customer * cptr) {
         cout << "Enter order #" << i + 1 << ": ";
         getline(cin, cptr->orders[i]);
     }
+
     cin.ignore();
     cout << endl;
 }
@@ -46,6 +47,8 @@ void displayCustomer(Customer * cptr) {
     cout << "Name: " << cptr->name << endl;
     cout << "Table number: " << cptr->tableNum << endl;
     for (int i = 0; i < cptr->numOrders; i++) {
-        cout << "test";
+        cout << "Order #" << i + 1 << ": " << cptr->orders[i] << endl;
     }
+    
+    cout << endl;
 }
