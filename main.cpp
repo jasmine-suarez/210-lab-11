@@ -31,4 +31,14 @@ void inputCustomer(Customer * cptr) {
     cin >> cptr->tableNum;
     cout << "How many orders? ";
     cin >> cptr->numOrders;
+
+    cptr -> orders = new string[cptr->numOrders];
+    for (int i = 0; i < cptr->numOrders; i++) {
+        cout << "Enter order #" << i + 1 << ": ";
+        getline(cin, cptr->orders[i]);
+    }
+
+    cin.ignore();
+
+    cout << endl;
 }
